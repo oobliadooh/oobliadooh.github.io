@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flora</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'freemono', monospace;
+      background: #fff;
+      color: #000;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      min-height: 100vh;
+    }
+
+    .intro h1 {
+      font-size: 4rem;
+      font-weight: normal;
+      margin-bottom: 2rem;
+    }
+
+    .intro p, .details p {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      max-width: 1000px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid #000;
+    }
+
+    .lang-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1rem;
+    }
+      .terminal {
+      font-family: monospace;
+      font-size: 2.5rem;
+      background: #000;
+      color: #00ff88;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ff8855;
+      margin-bottom: 2rem;
+    }
+
+    .prompt {
+      color: #ff5;
+      margin-right: 0.5rem;
+    }
+      @media (max-width: 600px) {
+      .intro h1 {
+        font-size: 2.5rem;
+      }
+      .intro p, .details p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        padding: 0 1rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-toggle">
+    <a href="#de">DE</a> / <a href="#en">EN</a>
+  </div>
+
+  <section class="intro">
+    <h1 class="intro-title">flora</h1>
+    <p id="de">Pädagoge und Bildungswissenschafter.<br><br>Arbeitet dort, wo Fragen bleiben – und Antworten keine einfachen Auswege versprechen.</p>
+    <p id="en" style="display:none;">Educator and educational scientist.<br><br>Works where questions persist – and answers never come easy.</p>
+    <p>
+      <a href="mailto:florian.rainer@vielmehr.at">florian.rainer@vielmehr.at</a>
+    </p>
+  </section>
+
+  <section class="details">
+    <p id="de"><strong>Themenschwerpunkte:</strong><br>
+    Pädagogische Arbeit mit Fokus auf Männlichkeiten, Medien und Migration.<br>
+    Kritische Auseinandersetzung mit Rassismus, Antisemitismus und gesellschaftlicher Machtverteilung.</p>
+
+    <p id="en" style="display:none;"><strong>Focus areas:</strong><br>
+    Educational work with a focus on masculinities, media, and migration.<br>
+    Critical engagement with racism, antisemitism, and power relations in society.</p>
+  </section>
+
+  <section class="details">
+    <p style="margin-top: 4rem;" id="de"><strong>Teil von:</strong><br>
+    Deutsche Gesellschaft für Erziehungswissenschaften (DGfE)<br>
+    Initiative Bildung und Digitaler Kapitalismus<br>
+    Bundesverband Medienbildung Österreich (BMVB)<br>
+    Institut für Migrationspädagogik (IMP)<br>
+    PROSA – Projekt Schule für Alle!<br>
+    Wiener Medienpädagogik / Universität Wien<br>
+    Universität Klagenfurt (UZF*GD)</p>
+
+    <p style="margin-top: 4rem; display:none;" id="en"><strong>Affiliations:</strong><br>
+    German Educational Research Association (DGfE)<br>
+    Education and Digital Capitalism Initiative<br>
+    Austrian Association for Media Education (BVMB)<br>
+    Institute for Migration Pedagogy (IMP)<br>
+    PROSA – School for All Project<br>
+    Vienna Media Pedagogy / University of Vienna<br>
+    University of Klagenfurt (UZF*GD)</p>
+  </section>
+
+  <script>
+    const langLinks = document.querySelectorAll(".lang-toggle a");
+    langLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const lang = link.getAttribute("href").replace("#", "");
+        document.querySelectorAll("#de").forEach(el => el.style.display = lang === "de" ? "block" : "none");
+        document.querySelectorAll("#en").forEach(el => el.style.display = lang === "en" ? "block" : "none");
+      });
+    });
+  </script>
+</body>
+</html>

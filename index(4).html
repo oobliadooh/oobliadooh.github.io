@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+
+  <title>flora – Pädagoge und Bildungswissenschafter</title>
+
+  <meta
+    name="description"
+    content="Forschung, Lehre und Entwicklung von Bildungsformaten zu Medien, Migration, Männlichkeiten und gesellschaftlichen Machtverhältnissen."
+  >
+  <meta name="author" content="Florian Rainer">
+
+  <link rel="canonical" href="https://oobliadooh.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="flora – Pädagoge und Bildungswissenschafter">
+  <meta
+    property="og:description"
+    content="Forschung, Lehre und Entwicklung von Bildungsformaten zu Medien, Migration, Männlichkeiten und gesellschaftlichen Machtverhältnissen."
+  >
+  <meta property="og:url" content="https://oobliadooh.github.io/">
+
+  <style>
+    :root {
+      --background: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --line: #d8d8d8;
+      --content-width: 820px;
+      --wide-width: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        ui-monospace,
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+      font-size: 18px;
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      text-underline-offset: 0.2rem;
+      transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+      opacity: 0.55;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 0.35rem;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 100;
+      padding: 0.45rem 0.7rem;
+      background: var(--background);
+      border: 1px solid var(--text);
+      transform: translateY(-180%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .language-switch {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      z-index: 20;
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.25rem 0.4rem;
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+    }
+
+    .language-switch button {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .language-switch button.active {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 0.3rem;
+    }
+
+    main {
+      width: 100%;
+    }
+
+    section {
+      display: flex;
+      min-height: 72vh;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 2rem;
+    }
+
+    .content {
+      width: 100%;
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+
+    .intro {
+      min-height: 100svh;
+      text-align: center;
+    }
+
+    .intro h1 {
+      margin: 0 0 2.25rem;
+      font-size: clamp(2.8rem, 9vw, 5.4rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .intro-text {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.65;
+    }
+
+    .intro-role {
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    .intro-positioning {
+      display: block;
+      color: var(--muted);
+    }
+
+    .contact-links,
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.5rem;
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .scroll-link {
+      display: inline-block;
+      margin-top: 4rem;
+      border-bottom: 0;
+      font-size: 1.5rem;
+    }
+
+    .visual-section {
+      min-height: auto;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    figure {
+      width: 100%;
+      max-width: var(--wide-width);
+      margin: 0;
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      max-height: 82vh;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    figcaption {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: right;
+    }
+
+    .text-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      margin: 0 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 1.5rem;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .large-text {
+      font-size: clamp(1.12rem, 2.3vw, 1.48rem);
+      line-height: 1.72;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem 4rem;
+    }
+
+    .grid-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .project-list,
+    .station-list,
+    .network-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-list li,
+    .station-list li,
+    .network-list li {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-list li:first-child,
+    .station-list li:first-child,
+    .network-list li:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .project-title {
+      display: block;
+      font-weight: 600;
+    }
+
+    .project-description,
+    .station-description {
+      display: block;
+      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-section {
+      min-height: 72vh;
+      text-align: center;
+    }
+
+    .footer-intro {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .small-note {
+      margin-top: 4rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        font-size: 16px;
+      }
+
+      section {
+        min-height: auto;
+        padding: 5.5rem 1.4rem;
+      }
+
+      .intro {
+        min-height: 100svh;
+      }
+
+      .language-switch {
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .contact-links,
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      figure img {
+        max-height: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Florian Rainer",
+    "alternateName": "flora",
+    "url": "https://oobliadooh.github.io/",
+    "sameAs": [
+      "https://orcid.org/0009-0005-2614-4293"
+    ],
+    "jobTitle": "Pädagoge und Bildungswissenschafter",
+    "knowsAbout": [
+      "Medienpädagogik",
+      "Migrationspädagogik",
+      "Männlichkeiten",
+      "Antisemitismuskritik",
+      "Rassismuskritik",
+      "Digitaler Kapitalismus",
+      "Kritische Bildungsarbeit"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+  <nav class="language-switch" aria-label="Sprachauswahl / Language selection">
+    <button
+      type="button"
+      data-language-button="de"
+      class="active"
+      aria-pressed="true"
+    >
+      DE
+    </button>
+
+    <span aria-hidden="true">/</span>
+
+    <button
+      type="button"
+      data-language-button="en"
+      aria-pressed="false"
+    >
+      EN
+    </button>
+  </nav>
+
+  <main id="inhalt">
+
+    <!-- INTRO -->
+    <section class="intro" id="start">
+      <div class="content">
+        <h1>florian rainer</h1>
+
+        <div data-lang="de">
+          <p class="intro-text">
+            <span class="intro-role">
+              Pädagoge und Bildungswissenschafter.
+            </span>
+
+            <span class="intro-positioning">
+              Forschung, Lehre und Entwicklung von Bildungsformaten
+              zu Medien, Migration, Männlichkeiten und gesellschaftlichen Machtverhältnissen.
+            </span>
+          </p>
+        </div>
+
+        <div data-lang="en" hidden>
+          <p class="intro-text">
+            <span class="intro-role">
+              Educator and educational scientist.
+            </span>
+
+            <span class="intro-positioning">
+              Research, teaching, and the development of educational formats
+              on media, migration, masculinities, and social power relations.
+            </span>
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:florian.rainer@vielmehr.at">
+            Mail
+          </a>
+
+          <a
+            href="https://orcid.org/0009-0005-2614-4293"
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            ORCID
+          </a>
+        </div>
+
+        <a class="scroll-link" href="#visual" aria-label="Weiter zum Porträt">
+          ↓
+        </a>
+      </div>
+    </section>
+
+    <!-- FOTO -->
+    <section class="visual-section" id="visual">
+      <figure>
+        <img
+          src="portrait.png"
+          alt="Porträt von Florian Rainer"
+        >
+
+        <figcaption data-lang="de">
+          Pädagogik zwischen Forschung, Praxis und Kritik.
+        </figcaption>
+
+        <figcaption data-lang="en" hidden>
+          Education between research, practice, and critique.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- POSITION -->
+    <section class="text-section" id="profil">
+      <div class="content">
+        <div data-lang="de">
+          <p class="section-label">Position</p>
+
+          <p class="large-text">
+            Ich arbeite an der Frage, wie Bildung unter Bedingungen
+            digitaler Medien, Migration und gesellschaftlicher Ungleichheit
+            möglich wird.
+          </p>
+
+          <p class="large-text">
+            Im Zentrum stehen Antisemitismus, Rassismus und Männlichkeiten –
+            nicht als voneinander getrennte Themen, sondern als gesellschaftliche
+            Verhältnisse, die pädagogische Situationen, Institutionen und Urteile
+            prägen.
+          </p>
+
+          <p class="large-text">
+            Forschung, Lehre und Praxis verbinde ich in Bildungsformaten,
+            die Irritation zulassen, Urteilskraft stärken und einfache Antworten
+            vermeiden.
+          </p>
+        </div>
+
+        <div data-lang="en" hidden>
+          <p class="section-label">Position</p>
+
+          <p class="large-text">
+            My work asks how education becomes possible under conditions
+            shaped by digital media, migration, and social inequality.
+          </p>
+
+          <p class="large-text">
+            It focuses on antisemitism, racism, and masculinities –
+            not as separate topics, but as social relations that shape
+            educational settings, institutions, and forms of judgement.
+          </p>
+
+          <p class="large-text">
+            I bring research, teaching, and practice together in educational
+            formats that allow for disruption, strengthen critical judgement,
+            and resist easy answers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARBEITSFELDER -->
+    <section class="text-section" id="arbeit">
+      <div class="content">
+        <div data-lang="de">
+          <p class="section-label">Arbeitsfelder</p>
+
+          <div class="grid">
+            <article class="grid-item">
+              <h3>Forschung</h3>
+              <p>
+                Praxisnahe Forschung zu Antisemitismus, Medien,
+                Männlichkeiten, digitalem Kapitalismus
+                und pädagogischer Urteilskraft.
+              </p>
+            </article>
+
+            <article class="grid-item">
+              <h3>Lehre</h3>
+              <p>
+                Medienpädagogik, Migrationspädagogik,
+                digitale Kompetenzen und kritische Bildungsarbeit
+                in Hochschule und Erwachsenenbildung.
+              </p>
+            </article>
+
+            <article class="grid-item">
+              <h3>Praxis</h3>
+              <p>
+                Workshops, Fortbildungen, Prozessbegleitung,
+                Bildungsmaterialien und offene Bildungsressourcen.
+              </p>
+            </article>
+
+            <article class="grid-item">
+              <h3>Organisation</h3>
+              <p>
+                Konzeption und Aufbau von Forschungsbereichen,
+                Kooperationen und politisch-pädagogischen Projekten.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div data-lang="en" hidden>
+          <p class="section-label">Areas of work</p>
+
+          <div class="grid">
+            <article class="grid-item">
+              <h3>Research</h3>
+              <p>
+                Practice-based research on antisemitism, media,
+                masculinities, digital capitalism,
+                and educational judgement.
+              </p>
+            </article>
+
+            <article class="grid-item">
+              <h3>Teaching</h3>
+              <p>
+                Media education, migration pedagogy,
+                digital competences, and critical education
+                in higher and adult education.
+              </p>
+            </article>
+
+            <article class="grid-item">
+              <h3>Practice</h3>
+              <p>
+                Workshops, professional development, process facilitation,
+                educational materials, and open educational resources.
+              </p>
+            </article>
+
+            <article class="grid-item">
+              <h3>Organisation</h3>
+              <p>
+                Designing and developing research areas,
+                collaborations, and political-educational projects.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJEKTE -->
+    <section class="text-section" id="projekte">
+      <div class="content">
+        <div data-lang="de">
+          <p class="section-label">Aktuelle Projekte</p>
+
+          <ul class="project-list">
+            <li>
+              <span class="project-title">Medien und Demokratie</span>
+              <span class="project-description">
+                Ein offenes Lehrbuch- und Bildungsprojekt
+                für demokratische Medienbildung.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Museum des digitalen Kapitalismus</span>
+              <span class="project-description">
+                Eine offene, datensparsame und erweiterbare Sammlung,
+                die digitale Alltagsobjekte kritisch lesbar macht.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Antisemitismuskritische Bildungsarbeit</span>
+              <span class="project-description">
+                Forschung, Workshops und Bildungsmaterialien
+                an der Schnittstelle von Medien und Migrationsgesellschaft.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Männlichkeit und Mental Health</span>
+              <span class="project-description">
+                Bildungsmaterialien für kritische Jungen- und Männerarbeit.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div data-lang="en" hidden>
+          <p class="section-label">Current projects</p>
+
+          <ul class="project-list">
+            <li>
+              <span class="project-title">Media and Democracy</span>
+              <span class="project-description">
+                An open textbook and educational project
+                for democratic media education.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Museum of Digital Capitalism</span>
+              <span class="project-description">
+                An open, privacy-conscious, and expandable collection
+                that makes digital everyday objects available for critical inquiry.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Critical Education on Antisemitism</span>
+              <span class="project-description">
+                Research, workshops, and educational materials
+                at the intersection of media and migration.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Masculinity and Mental Health</span>
+              <span class="project-description">
+                Educational materials for critical work with boys and men.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AKTUELLE STATIONEN -->
+    <section class="text-section" id="stationen">
+      <div class="content">
+        <div data-lang="de">
+          <p class="section-label">Aktuelle Stationen</p>
+
+          <ul class="station-list">
+            <li>
+              <span class="project-title">Institut für Migrationspädagogik</span>
+              <span class="station-description">
+                Leitung eines Forschungsbereichs zu Antisemitismuskritik,
+                Ideologien der Ungleichheit und pädagogischer Urteilskraft.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Universität Wien</span>
+              <span class="station-description">
+                Lehre und Forschung im Arbeitsbereich Medienpädagogik.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">Universität Klagenfurt</span>
+              <span class="station-description">
+                Lehre zu Geschlechterverhältnissen
+                und kritischer Bildungswissenschaft.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">PROSA – Projekt Schule für Alle!</span>
+              <span class="station-description">
+                Pädagogische Praxis, Forschung und Entwicklung von Bildungsformaten
+                in der Migrationsgesellschaft.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div data-lang="en" hidden>
+          <p class="section-label">Current positions</p>
+
+          <ul class="station-list">
+            <li>
+              <span class="project-title">Institute for Migration Pedagogy</span>
+              <span class="station-description">
+                Head of a research area on antisemitism critique,
+                ideologies of inequality, and educational judgement.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">University of Vienna</span>
+              <span class="station-description">
+                Teaching and research in media education.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">University of Klagenfurt</span>
+              <span class="station-description">
+                Teaching on gender relations
+                and critical educational research.
+              </span>
+            </li>
+
+            <li>
+              <span class="project-title">PROSA – School for All</span>
+              <span class="station-description">
+                Educational practice, research, and the development
+                of educational formats in the context of a migration society.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MITGLIEDSCHAFTEN UND NETZWERKE -->
+    <section class="text-section" id="netzwerk">
+      <div class="content">
+        <div data-lang="de">
+          <p class="section-label">Mitgliedschaften und Netzwerke</p>
+
+          <ul class="network-list">
+            <li>Deutsche Gesellschaft für Erziehungswissenschaft</li>
+            <li>Initiative Bildung und Digitaler Kapitalismus</li>
+            <li>Bundesverband Medienbildung Österreich</li>
+            <li>Wiener Medienpädagogik</li>
+          </ul>
+        </div>
+
+        <div data-lang="en" hidden>
+          <p class="section-label">Memberships and networks</p>
+
+          <ul class="network-list">
+            <li>German Educational Research Association</li>
+            <li>Education and Digital Capitalism Initiative</li>
+            <li>Austrian Association for Media Education</li>
+            <li>Vienna Media Education</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="text-section footer-section" id="kontakt">
+      <div class="content">
+        <div data-lang="de">
+          <p class="section-label">Kontakt</p>
+
+          <h2>
+            Fragen bleiben.
+            <br>
+            Gespräche beginnen.
+          </h2>
+
+          <p class="footer-intro">
+            Für Kooperationen, Workshops, Forschung
+            und gemeinsame Projektentwicklung.
+          </p>
+        </div>
+
+        <div data-lang="en" hidden>
+          <p class="section-label">Contact</p>
+
+          <h2>
+            Questions remain.
+            <br>
+            Conversations begin.
+          </h2>
+
+          <p class="footer-intro">
+            For collaborations, workshops, research,
+            and the joint development of projects.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="mailto:florian.rainer@vielmehr.at">
+            florian.rainer@vielmehr.at
+          </a>
+
+          <a
+            href="https://orcid.org/0009-0005-2614-4293"
+            target="_blank"
+            rel="me noopener noreferrer"
+          >
+            ORCID 0009-0005-2614-4293
+          </a>
+        </div>
+
+        <p class="small-note">
+          © <span id="year"></span> flora
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const languageButtons =
+      document.querySelectorAll("[data-language-button]");
+
+    const languageElements = {
+      de: document.querySelectorAll('[data-lang="de"]'),
+      en: document.querySelectorAll('[data-lang="en"]')
+    };
+
+    const pageMetadata = {
+      de: {
+        title: "flora – Pädagoge und Bildungswissenschafter",
+        description:
+          "Forschung, Lehre und Entwicklung von Bildungsformaten zu Medien, Migration, Männlichkeiten und gesellschaftlichen Machtverhältnissen."
+      },
+      en: {
+        title: "flora – Educator and Educational Scientist",
+        description:
+          "Research, teaching, and the development of educational formats on media, migration, masculinities, and social power relations."
+      }
+    };
+
+    function saveLanguage(language) {
+      try {
+        localStorage.setItem("preferred-language", language);
+      } catch (error) {
+        // Die Seite funktioniert auch ohne localStorage.
+      }
+    }
+
+    function getSavedLanguage() {
+      try {
+        return localStorage.getItem("preferred-language");
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function setLanguage(language) {
+      const activeLanguage = language === "en" ? "en" : "de";
+
+      Object.entries(languageElements).forEach(([key, elements]) => {
+        elements.forEach(element => {
+          element.hidden = key !== activeLanguage;
+        });
+      });
+
+      languageButtons.forEach(button => {
+        const isActive =
+          button.dataset.languageButton === activeLanguage;
+
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      document.documentElement.lang = activeLanguage;
+      document.title = pageMetadata[activeLanguage].title;
+
+      const description = document.querySelector('meta[name="description"]');
+
+      if (description) {
+        description.setAttribute(
+          "content",
+          pageMetadata[activeLanguage].description
+        );
+      }
+
+      saveLanguage(activeLanguage);
+    }
+
+    languageButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.languageButton);
+      });
+    });
+
+    const savedLanguage = getSavedLanguage();
+    const browserLanguage = navigator.language.toLowerCase().startsWith("en")
+      ? "en"
+      : "de";
+
+    setLanguage(savedLanguage || browserLanguage);
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -16,7 +16,7 @@
   <link rel="canonical" href="https://oobliadooh.github.io/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="flora – Pädagoge und Bildungswissenschafter">
+  <meta property="og:title" content="florian rainer – Pädagoge und Bildungswissenschafter">
   <meta
     property="og:description"
     content="Forschung, Lehre und Entwicklung von Bildungsformaten zu Medien, Männlichkeiten und Ideologien der Ungleichwertigkeit."
@@ -219,12 +219,17 @@
       border-top: 1px solid var(--line);
     }
 
+    .text-section:not(.footer-section) {
+      padding-top: 7.5rem;
+      padding-bottom: 7.5rem;
+    }
+
     .section-label {
-      margin: 0 0 2.5rem;
-      color: var(--muted);
-      font-size: 0.85rem;
+      margin: 0 0 2.25rem;
+      color: #777777;
+      font-size: 0.72rem;
       font-weight: 400;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
@@ -246,8 +251,8 @@
     }
 
     .large-text {
-      font-size: clamp(1.12rem, 2.3vw, 1.48rem);
-      line-height: 1.72;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.75;
     }
 
     .grid {
@@ -272,8 +277,12 @@
     .project-list li,
     .station-list li,
     .network-list li {
-      padding: 1.2rem 0;
+      padding: 1.05rem 0;
       border-bottom: 1px solid var(--line);
+    }
+
+    .network-list {
+      font-size: 0.92rem;
     }
 
     .project-list li:first-child,
@@ -290,9 +299,10 @@
     .project-description,
     .station-description {
       display: block;
-      margin-top: 0.3rem;
+      margin-top: 0.22rem;
       color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.6;
     }
 
     .footer-section {
@@ -319,7 +329,12 @@
 
       section {
         min-height: auto;
-        padding: 5.5rem 1.4rem;
+        padding: 5.25rem 1.4rem;
+      }
+
+      .text-section:not(.footer-section) {
+        padding-top: 5.75rem;
+        padding-bottom: 5.75rem;
       }
 
       .intro {
@@ -376,7 +391,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Florian Rainer",
-    "alternateName": "flora",
+    "alternateName": "florian rainer",
     "url": "https://oobliadooh.github.io/",
     "sameAs": [
       "https://orcid.org/0009-0005-2614-4293"
@@ -478,7 +493,7 @@
     <section class="visual-section" id="visual">
       <figure>
         <img
-          src="portrait.png"
+          src="portrait.png?v=2"
           alt="Porträt von Florian Rainer"
         >
 
@@ -739,7 +754,7 @@
             </li>
 
             <li>
-              <span class="project-title">VHS Favoriten / Institut für Mehrsprachigkeit, Integration &amp; Bildung</span>
+              <span class="project-title">lernraum.wien – VHS Favoriten / Institut für Mehrsprachigkeit, Integration &amp; Bildung</span>
               <span class="station-description">
                 Lehre zu digitalen Kompetenzen
                 in der Aus- und Weiterbildung von Pädagog:innen.
@@ -784,7 +799,7 @@
             </li>
 
             <li>
-              <span class="project-title">VHS Favoriten / Institute for Multilingualism, Integration &amp; Education</span>
+              <span class="project-title">lernraum.wien – VHS Favoriten / Institute for Multilingualism, Integration &amp; Education</span>
               <span class="station-description">
                 Teaching digital competences
                 in the education and professional development of educators.
@@ -845,8 +860,8 @@
           </h2>
 
           <p class="footer-intro">
-            Für Kooperationen, Workshops, Forschung
-            und gemeinsame Projektentwicklung.
+            Für Kooperationen, Workshops und die gemeinsame
+            Entwicklung von Bildungs- und Forschungsprojekten.
           </p>
         </div>
 
@@ -860,8 +875,8 @@
           </h2>
 
           <p class="footer-intro">
-            For collaborations, workshops, research,
-            and the joint development of projects.
+            For collaborations, workshops, and the joint development
+            of educational and research projects.
           </p>
         </div>
 
@@ -880,7 +895,7 @@
         </div>
 
         <p class="small-note">
-          © <span id="year"></span> flora
+          © <span id="year"></span> florian rainer
         </p>
       </div>
     </section>
